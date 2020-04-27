@@ -52,6 +52,7 @@ public class SVRLSuccessfulReport extends AbstractSVRLMessage
            aLocationProvider.apply (aSuccessfulReport),
            aSuccessfulReport.getTest (),
            aSuccessfulReport.getRole (),
-           aErrLevelProvider.apply (aSuccessfulReport));
+           aErrLevelProvider.apply (aSuccessfulReport),
+           aSuccessfulReport.getId());
   }
 }

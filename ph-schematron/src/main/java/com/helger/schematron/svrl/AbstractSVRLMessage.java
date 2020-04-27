@@ -46,13 +46,16 @@ public abstract class AbstractSVRLMessage implements Serializable
   protected String m_sTest;
   protected String m_sRole;
   protected IErrorLevel m_aFlag;
+  protected String m_sId;
+
 
   public AbstractSVRLMessage (@Nullable final List <DiagnosticReference> aDiagnosticReferences,
                               @Nullable final String sText,
                               @Nullable final String sLocation,
                               @Nullable final String sTest,
                               @Nullable final String sRole,
-                              @Nullable final IErrorLevel aFlag)
+                              @Nullable final IErrorLevel aFlag,
+                              @Nullable final String sId)
   {
     m_aDiagnosticReferences = new CommonsArrayList <> (aDiagnosticReferences);
     m_sText = StringHelper.trim (sText);
@@ -99,6 +102,12 @@ public abstract class AbstractSVRLMessage implements Serializable
     return m_aFlag;
   }
 
+  @Nullable
+  public String getId()
+  {
+    return m_sId;
+  }
+
   @Nonnull
   public SVRLResourceError getAsResourceError (@Nullable final String sResourceName)
   {
@@ -106,6 +115,7 @@ public abstract class AbstractSVRLMessage implements Serializable
                                          .setErrorFieldName (m_sLocation)
                                          .setErrorLocation (new SimpleLocation (sResourceName))
                                          .setErrorText (m_sText)
+                                         .setErrorID(m_sId)
                                          .build ();
   }
 

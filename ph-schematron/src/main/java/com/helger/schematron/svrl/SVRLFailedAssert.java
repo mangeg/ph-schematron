@@ -52,6 +52,7 @@ public class SVRLFailedAssert extends AbstractSVRLMessage
            aLocationProvider.apply (aFailedAssert),
            aFailedAssert.getTest (),
            aFailedAssert.getRole (),
-           aErrLevelProvider.apply (aFailedAssert));
+           aErrLevelProvider.apply (aFailedAssert),
+           aFailedAssert.getId());
   }
 }
